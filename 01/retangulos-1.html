@@ -1,0 +1,25 @@
+<html> 
+<head> 
+<title>Processando o Canvas na seção HEAD</title> 
+<script> 
+    window.onload = function() { 
+        // Aqui trabalharemos com o Canvas 
+    } 
+</script> 
+</head> 
+<body> 
+    <canvas id="meu_canvas" width="200" height="200"></canvas> 
+    
+    <script>
+        
+        //Canvas e contexto
+        var canvas = document.getElementById('meu_canvas');
+        var context = canvas.getContext('2d');
+        
+        //Desenhar um retângulo
+        context.fillRect(50,50,100,100)
+        
+    </script>
+    
+</body> 
+</html>
