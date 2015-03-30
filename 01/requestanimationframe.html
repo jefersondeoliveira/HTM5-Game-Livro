@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html> 
+<head> 
+<title>Jogos HTML5</title> 
+</head> 
+<body> 
+    
+    <canvas id="meu_canvas" width="300" height="300"></canvas> 
+    
+    <script>
+        
+        canvas = document.getElementById('meu_canvas');
+        context = canvas.getContext('2d');
+
+        //dados bola
+        var x = 20;
+        var y = 100;
+        var raio = 5;
+        //momento inicial
+        var anterior = new Date().getTime();
+
+        //iniciar a animação
+        requestAnimationFrame(mexerBola);
+
+        //função de animação
+        function mexerBola(){
+        	//momento atual
+        	var agora = new Date().getTime();
+
+        	//diferença
+        	var decorrido = agora - anterior;
+
+        	//limpa canvas
+        	context.clearRect(0,0,canvas.width,canvas.height);
+
+        	//desenha a bola
+        	context.beginPath();
+        	context.arc(x,y,raio,0,Math.PI*2);
+        	context.fill();
+
+        	//deslocar 20 pixels para a direita
+        	//x +=20;													
+        	//deslocar 20 pixels por segundo
+        	var velocidade = 20;
+        	x += velocidade * decorrido / 1000;
+
+            //guardando o instante para o prox ciclo
+            anterior = agora;
+
+        	//chama o próximo ciclo da animação
+        	requestAnimationFrame(mexerBola);
+        }
+                
+    </script>
+    
+</body> 
+</html>
